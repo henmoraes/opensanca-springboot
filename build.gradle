@@ -1,0 +1,30 @@
+buildscript {
+
+	// properties
+	ext {
+		springBootVersion = "1.3.3.RELEASE"
+		gradleFiles = "gradleFiles"
+		debugPort = 5005
+	}
+
+  repositories {
+	mavenLocal()
+	mavenCentral()
+  }
+  dependencies {
+	classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+  }
+}
+
+apply from: "$gradleFiles/plugins.gradle"
+apply from: "$gradleFiles/repositories.gradle"
+apply from: "$gradleFiles/dependencies.gradle"
+
+compileJava {
+	options.encoding = 'ISO-8859-1'
+}
+
+version = "0.0.1"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

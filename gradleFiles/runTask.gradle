@@ -1,0 +1,9 @@
+run {
+    def suspend = 'n'
+	 
+    if ( System.getProperty('debug.suspend') != null) {
+    	suspend = 'y'
+    }
+    
+    jvmArgs "-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=${suspend},address=${debugPort}"
+}
